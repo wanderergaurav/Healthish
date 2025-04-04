@@ -3,9 +3,9 @@ import Bell from "../assets/Bell.svg";
 import Bell2 from "../assets/Bell2.svg";
 import BellOutline from "../assets/BellOutline.svg";
 import SettOutline from "../assets/SettOutline.svg";
-import Dott from "../assets/Dott.svg";
 import Plus from "../assets/Plus.svg";
 import Location from "../assets/Location Icon.svg";
+import { MoreHorizontal } from "lucide-react";
 
 
 interface Day {
@@ -128,17 +128,22 @@ const RightSidebar = () => {
       </div> 
 
       {/* Post Workout Sessions */}
+<div>
+  <h3 className="font-semibold text-gray-700 mb-2">Post Workout Sessions</h3>
+  <div className="bg-gray-50 p-3 rounded-lg">
+    <div className="flex items-center justify-between w-full">
       <div>
-        <h3 className="font-semibold text-gray-700 mb-2">Post Workout Sessions</h3>
-        <div className="bg-gray-50 p-3 rounded-lg">
-          <div className="flex items-center justify-between w-full">
-            <p className="text-gray-700 font-medium text-sm">Meditation</p>
-            <img src={Dott} alt="Dott" className="w-6 h-6" />
-          </div>
-          <p className="text-gray-500 text-xs">5:00 PM - 6:00 PM</p>
-          <p className="text-gray-400 text-xs">Coach: Tim Bjorvick</p>
-        </div>
+        <p className="text-gray-700 font-medium text-sm">Meditation</p>
+        <p className="text-gray-500 text-xs">5:00 PM - 6:00 PM</p>
+        <p className="text-gray-400 text-xs">Coach: Tim Bjorvick</p>
       </div>
+      <button className="text-gray-400 ml-4 self-start">
+        <MoreHorizontal size={16} />
+      </button>
+    </div>
+  </div>
+</div>
+
     </div>
   );
 };

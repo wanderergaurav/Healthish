@@ -5,6 +5,11 @@ import Meditation from "../assets/meditation.svg";
 import Feet from "../assets/feet.svg";
 import Calories from "../assets/calories.svg";
 import Drop from "../assets/drops.svg";
+import { MoreHorizontal } from "lucide-react";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css"; // Import default styles
+
+
 
 export default function DashboardMain() {
   return (
@@ -56,19 +61,22 @@ export default function DashboardMain() {
       <div className="grid grid-cols-3 gap-3 w-full">
   {[
     { 
-      value: "202/3000", 
+      value: "202", 
+      total: "/3000", 
       label: "Steps taken", 
       icon: <img src={Feet} alt="Feet" className="w-6 h-6" />, 
       bgColor: "bg-purple-500" 
     },
     { 
-      value: "408 kcal", 
+      value: "408", 
+      total: "kcal", 
       label: "Calories burned", 
       icon: <img src={Calories} alt="Calories" className="w-6 h-6" />, 
       bgColor: "bg-green-400" 
     },
     { 
-      value: "87 litres", 
+      value: "87", 
+      total: "litres", 
       label: "Water taken", 
       icon: <img src={Drop} alt="Drop" className="w-6 h-6" />, 
       bgColor: "bg-blue-400" 
@@ -86,16 +94,15 @@ export default function DashboardMain() {
       {/* Value and Label Section */}
       <div>
         <p className="text-lg font-bold text-gray-900">
-          {stat.value.split("/")[0]}
-          {stat.value.includes("/") && (
-            <span className="text-gray-400 text-base font-normal">/{stat.value.split("/")[1]}</span>
-          )}
+          {stat.value}
+          <span className="text-gray-400 text-base font-normal"> {stat.total}</span>
         </p>
         <p className="text-gray-500 text-sm">{stat.label}</p>
       </div>
     </div>
   ))}
 </div>
+
 
 
 
@@ -108,11 +115,37 @@ export default function DashboardMain() {
         </div>
 
         {/* Sleep Report */}
-        <div className="bg-white p-4 rounded-lg shadow-sm flex flex-col items-center">
-          <p className="text-green-600 text-lg font-semibold">12%</p>
-          <p className="text-gray-500 text-sm">Increment</p>
-          <p className="text-gray-400 text-xs">3:30 mins yesterday</p>
-        </div>
+
+        <div className="bg-white p-5 rounded-2xl shadow-md w-full flex flex-col items-center relative">
+        {/* Three-dot menu */}
+          <button className="absolute top-3 right-3 text-gray-400">
+          <MoreHorizontal size={16} />
+          </button>
+
+        {/* Circular Progress Bar */}
+<div className="relative w-20 h-10 overflow-hidden">
+  <div className="absolute top-0 left-0 w-full h-full transform">
+    <CircularProgressbar
+      value={12}
+      text="12%"
+      styles={buildStyles({
+        textSize: "16px",
+        pathColor: "#6fd1b8",
+        trailColor: "#ebf5f2",
+        textColor: "#2d3748",
+        strokeLinecap: "round",
+      })}
+    />
+  </div>
+</div>
+
+  <p className="text-xs text-gray-400 mt-5">Increment</p>
+
+  {/* Sleep Data */}
+  <h3 className="text-gray-700 font-semibold mt-10">Hours of sleep</h3>
+  <p className="text-sm text-gray-400">3:30 mins yesterday</p>
+</div>
+
       </div>
 
       {/* Reminders & Reports */}
