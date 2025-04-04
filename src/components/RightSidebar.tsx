@@ -122,10 +122,10 @@ const RightSidebar = () => {
           </div>
           <div>
             <p className="text-gray-700 font-medium text-sm">Meeting with Tok Dalang</p>
-            <p className="text-gray-400 text-xs">07:00 AM <span className="text-red-500">Due Soon</span></p>
+            <p className="text-gray-400 text-xs">07:00 AM <span className="text-orange-500 ml-1">Due Soon</span></p>
           </div>
         </div>
-      </div>
+      </div> 
 
       {/* Post Workout Sessions */}
       <div>

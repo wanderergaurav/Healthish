@@ -91,7 +91,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
     <div className="flex items-center space-x-2">
       {extraIcon}
       {notificationCount && (
-        <span className="bg-orange-400 text-white text-xs px-2 py-0.5 rounded-full">
+        <span className="bg-orange-400 text-black text-xs px-2 py-0.5 rounded-full font-semibold">
           {notificationCount}
         </span>
       )}
