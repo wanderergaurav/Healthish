@@ -53,50 +53,50 @@ export default function DashboardMain() {
         <img src={Meditation} alt="Meditation" className="w-32 h-32" />
       </div>
 
-      {/* Stats Overview */}
       <div className="grid grid-cols-3 gap-3 w-full">
   {[
     { 
       value: "202/3000", 
       label: "Steps taken", 
-      icon: <img src={Feet} alt="Feet" className="w-5 h-5" />, 
+      icon: <img src={Feet} alt="Feet" className="w-6 h-6" />, 
       bgColor: "bg-purple-500" 
     },
     { 
       value: "408 kcal", 
       label: "Calories burned", 
-      icon: <img src={Calories} alt="Calories" className="w-5 h-5" />, 
+      icon: <img src={Calories} alt="Calories" className="w-6 h-6" />, 
       bgColor: "bg-green-400" 
     },
     { 
       value: "87 litres", 
       label: "Water taken", 
-      icon: <img src={Drop} alt="Drop" className="w-5 h-5" />, 
+      icon: <img src={Drop} alt="Drop" className="w-6 h-6" />, 
       bgColor: "bg-blue-400" 
     },
   ].map((stat, i) => (
     <div 
       key={i} 
-      className="bg-white p-5 rounded-xl shadow-md flex flex-col items-center w-full border border-gray-200"
+      className="bg-white p-4 rounded-xl shadow-md flex items-center w-full border border-gray-200"
     >
-      {/* Icon inside Circular Container */}
-      <div className={`${stat.bgColor} w-12 h-12 rounded-full flex items-center justify-center mb-2`}>
+      {/* Icon inside Circular Container (Left Aligned) */}
+      <div className={`${stat.bgColor} w-12 h-12 rounded-full flex items-center justify-center mr-4`}>
         {stat.icon}
       </div>
 
       {/* Value and Label Section */}
-      <div className="text-center">
-        <p className="text-xl font-bold text-gray-900">
+      <div>
+        <p className="text-lg font-bold text-gray-900">
           {stat.value.split("/")[0]}
           {stat.value.includes("/") && (
-            <span className="text-gray-400 text-lg font-normal">/{stat.value.split("/")[1]}</span>
+            <span className="text-gray-400 text-base font-normal">/{stat.value.split("/")[1]}</span>
           )}
         </p>
-        <p className="text-gray-500 text-sm mt-1">{stat.label}</p>
+        <p className="text-gray-500 text-sm">{stat.label}</p>
       </div>
     </div>
   ))}
 </div>
+
 
 
 
